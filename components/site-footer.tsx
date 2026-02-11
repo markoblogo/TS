@@ -16,10 +16,10 @@ export function SiteFooter({ locale, copy }: Props) {
       : `Business window Mon-Fri ${copy.live.clocks.businessWindow.open}-${copy.live.clocks.businessWindow.close} ${copy.live.clocks.businessWindow.tz}`;
 
   return (
-    <footer className="thin-rule mt-20 border-t py-10">
-      <div className="section-shell grid gap-4">
-        <h2 className="text-sm uppercase tracking-[0.2em] text-[var(--muted)]">{copy.live.clocks.title[locale]}</h2>
-        <p className="text-sm text-[var(--muted)]">{hoursText}</p>
+    <footer className="thin-rule mt-12 border-t py-6">
+      <div className="section-shell grid gap-3">
+        <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.live.clocks.title[locale]}</h2>
+        <p className="text-xs text-[var(--muted)]">{hoursText}</p>
         <LiveClocks
           locale={locale}
           zones={copy.live.clocks.zones}
@@ -28,7 +28,7 @@ export function SiteFooter({ locale, copy }: Props) {
           closedLabel={copy.live.clocks.businessWindow.labels[locale].closed}
           nextWindowLabel={copy.live.clocks.businessWindow.labels[locale].next}
         />
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-4 text-sm text-[var(--muted)]">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-t pt-3 text-xs text-[var(--muted)]">
           <p>{copy.footer[locale].note}</p>
           <Link href={`/${locale}/privacy`} className="focus-ring hover:text-[var(--fg)]">
             {copy.footer[locale].privacyLabel}

@@ -196,11 +196,11 @@ const siteCopy: SiteCopy = {
   about: {
     en: {
       title: "About",
-      text: "We build structured trade models focused on control, predictability and long-term outcomes. We are not a commodity broker, not a prop trader, and not consulting detached from execution."
+      text: "Trade Solutions supports commercial teams that need structure before they need volume. We map market context, contract logic, and logistics constraints into a practical execution framework. Our focus is operational clarity: who does what, when, and under which risk limits. We are not a commodity broker, not a prop trader, and not a price board. The work is designed to keep decisions measurable, documented, and executable in real conditions."
     },
     bg: {
       title: "За нас",
-      text: "Изграждаме структурирани модели с фокус върху контрол, предвидимост и дългосрочен резултат. Не сме commodity брокер, не сме prop trader и не сме консултант без изпълнение."
+      text: "Trade Solutions подпомага търговски екипи, когато е нужна структура преди обем. Подреждаме пазарен контекст, договорна логика и логистични ограничения в практична рамка за изпълнение. Фокусът ни е оперативна яснота: кой, какво и кога изпълнява при предварително зададени риск параметри. Не сме commodity брокер, не сме prop trader и не сме „витрина с цени“. Подходът е насочен към измерими, документирани и приложими в реални условия решения."
     }
   },
   faq: {

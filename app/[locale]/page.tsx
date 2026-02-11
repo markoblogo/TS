@@ -52,12 +52,12 @@ export default async function HomePage({
     <div className="min-h-screen">
       <SiteHeader locale={locale} copy={copy} />
 
-      <main className="section-shell relative py-16 md:py-20">
+      <main className="section-shell relative py-10 md:py-14">
         <div className="pointer-events-none absolute left-0 top-2 z-0 text-[180px] font-light leading-none tracking-tight text-[var(--fg)] opacity-[0.055] md:text-[280px]">
           TS
         </div>
 
-        <Reveal className="relative z-10 grid gap-8 pb-12">
+        <Reveal className="relative z-10 grid gap-5 pb-8">
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
           <h1 className="max-w-4xl text-4xl font-light tracking-tight md:text-6xl">
             {hero.h1Lines.map((line) => (
@@ -66,33 +66,33 @@ export default async function HomePage({
               </span>
             ))}
           </h1>
-          <p className="max-w-4xl text-base text-[var(--muted)] md:text-lg">
+          <p className="max-w-4xl text-base text-[var(--muted)] md:text-[17px]">
             {hero.leadLines.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
             ))}
           </p>
-          <div className="grid gap-3 border p-4 md:grid-cols-[1fr_auto_auto] md:items-center">
+          <div className="grid gap-3 border bg-[var(--panel)] p-3 md:grid-cols-[1fr_auto_auto] md:items-center">
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">Domain</p>
               <p className="font-mono text-sm">{copy.brand.domain}</p>
             </div>
-            <Link className="focus-ring rounded border px-3 py-2 text-sm hover:bg-[var(--panel)]" href={hero.ctaPrimary.href}>
+            <Link className="focus-ring rounded border px-3 py-1.5 text-sm hover:bg-[var(--panel)]" href={hero.ctaPrimary.href}>
               {hero.ctaPrimary.label}
             </Link>
-            <Link className="focus-ring rounded border px-3 py-2 text-sm hover:bg-[var(--panel)]" href={hero.ctaSecondary.href}>
+            <Link className="focus-ring rounded border px-3 py-1.5 text-sm hover:bg-[var(--panel)]" href={hero.ctaSecondary.href}>
               {hero.ctaSecondary.label}
             </Link>
           </div>
         </Reveal>
 
-        <Reveal className="thin-rule border-t py-12" id="solutions">
+        <Reveal className="thin-rule border-t py-8" id="solutions">
           <h2 className="mb-2 text-2xl font-light tracking-tight">{solutions.title}</h2>
-          <p className="mb-6 text-[var(--muted)]">{solutions.subtitle}</p>
+          <p className="mb-4 text-[var(--muted)]">{solutions.subtitle}</p>
           <div className="grid gap-4 md:grid-cols-2">
             {solutions.items.map((item) => (
-              <article key={item.title} className="rounded-xl border bg-[var(--panel)] p-6">
+              <article key={item.title} className="rounded-lg border bg-[var(--panel)] p-4">
                 <h3 className="mb-2 text-lg">{item.title}</h3>
                 <p className="text-sm text-[var(--muted)]">{item.text}</p>
               </article>
@@ -100,11 +100,11 @@ export default async function HomePage({
           </div>
         </Reveal>
 
-        <Reveal className="thin-rule border-t py-12" id="process">
-          <h2 className="mb-6 text-2xl font-light tracking-tight">{process.title}</h2>
+        <Reveal className="thin-rule border-t py-8" id="process">
+          <h2 className="mb-4 text-2xl font-light tracking-tight">{process.title}</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {process.steps.map((step) => (
-              <article key={step.title} className="rounded-xl border bg-[var(--panel)] p-6">
+              <article key={step.title} className="rounded-lg border bg-[var(--panel)] p-4">
                 <h3 className="mb-2 text-lg">{step.title}</h3>
                 <p className="mb-3 text-sm text-[var(--muted)]">{step.text}</p>
                 <p className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--muted)]">{step.meta.join(" · ")}</p>
@@ -113,11 +113,11 @@ export default async function HomePage({
           </div>
         </Reveal>
 
-        <Reveal className="thin-rule border-t py-12" id="scope">
+        <Reveal className="thin-rule border-t py-8" id="scope">
           <h2 className="mb-2 text-2xl font-light tracking-tight">{scope.title}</h2>
-          <p className="mb-6 text-[var(--muted)]">{scope.subtitle}</p>
-          <div className="grid gap-8 md:grid-cols-2">
-            <section className="rounded-xl border bg-[var(--panel)] p-6">
+          <p className="mb-4 text-[var(--muted)]">{scope.subtitle}</p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <section className="rounded-lg border bg-[var(--panel)] p-4">
               <h3 className="mb-3 text-sm uppercase tracking-[0.2em] text-[var(--muted)]">{scope.matrix.leftTitle}</h3>
               <ul className="grid gap-2">
                 {scope.matrix.leftItems.map((item) => (
@@ -127,7 +127,7 @@ export default async function HomePage({
                 ))}
               </ul>
             </section>
-            <section className="rounded-xl border bg-[var(--panel)] p-6">
+            <section className="rounded-lg border bg-[var(--panel)] p-4">
               <h3 className="mb-3 text-sm uppercase tracking-[0.2em] text-[var(--muted)]">{scope.matrix.rightTitle}</h3>
               <ul className="grid gap-2">
                 {scope.matrix.rightItems.map((item) => (
@@ -138,19 +138,19 @@ export default async function HomePage({
               </ul>
             </section>
           </div>
-          <p className="mt-4 text-sm text-[var(--muted)]">{scope.note}</p>
+          <p className="mt-3 text-sm text-[var(--muted)]">{scope.note}</p>
         </Reveal>
 
-        <Reveal className="thin-rule border-t py-12" id="about">
+        <Reveal className="thin-rule border-t py-8" id="about">
           <h2 className="mb-3 text-2xl font-light tracking-tight">{about.title}</h2>
-          <p className="max-w-4xl text-[var(--muted)]">{about.text}</p>
+          <p className="max-w-4xl leading-relaxed text-[var(--muted)]">{about.text}</p>
         </Reveal>
 
-        <Reveal className="thin-rule border-t py-12" id="faq">
-          <h2 className="mb-6 text-2xl font-light tracking-tight">{faq.title}</h2>
-          <div className="grid gap-3">
+        <Reveal className="thin-rule border-t py-8" id="faq">
+          <h2 className="mb-4 text-2xl font-light tracking-tight">{faq.title}</h2>
+          <div className="grid gap-3 md:grid-cols-2">
             {faq.items.map((item) => (
-              <details key={item.q} className="rounded-xl border bg-[var(--panel)] p-5">
+              <details key={item.q} className="rounded-lg border bg-[var(--panel)] p-4">
                 <summary className="cursor-pointer text-base font-medium">{item.q}</summary>
                 <p className="mt-3 text-sm text-[var(--muted)]">{item.a}</p>
               </details>
@@ -158,12 +158,12 @@ export default async function HomePage({
           </div>
         </Reveal>
 
-        <Reveal className="thin-rule border-t py-12" id="contact">
+        <Reveal className="thin-rule border-t py-8" id="contact">
           <h2 className="mb-2 text-2xl font-light tracking-tight">{contact.title}</h2>
-          <p className="mb-6 text-[var(--muted)]">{contact.lead}</p>
+          <p className="mb-4 text-[var(--muted)]">{contact.lead}</p>
           <div className="grid gap-4 md:grid-cols-2">
             {contact.cards.map((card) => (
-              <article key={card.email} className="rounded-xl border bg-[var(--panel)] p-6">
+              <article key={card.email} className="rounded-lg border bg-[var(--panel)] p-4">
                 <h3 className="mb-2 text-lg">{card.title}</h3>
                 <Link className="focus-ring font-mono text-sm hover:underline" href={`mailto:${card.email}`}>
                   {card.email}

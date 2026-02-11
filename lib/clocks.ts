@@ -25,6 +25,30 @@ function getTimeParts(now: Date, timeZone: string): { weekday: string; hour: num
   return { weekday, hour, minute };
 }
 
+function getTimePartsWithSeconds(
+  now: Date,
+  timeZone: string
+): { weekday: string; hour: number; minute: number; second: number } {
+  const weekday = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    weekday: "short"
+  }).format(now);
+
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  }).formatToParts(now);
+
+  const hour = Number(parts.find((part) => part.type === "hour")?.value ?? "0");
+  const minute = Number(parts.find((part) => part.type === "minute")?.value ?? "0");
+  const second = Number(parts.find((part) => part.type === "second")?.value ?? "0");
+
+  return { weekday, hour, minute, second };
+}
+
 type WindowConfig = {
   tz: string;
   open: string;
@@ -83,4 +107,21 @@ export function formatClock(timeZone: string, locale: "en" | "bg", now: Date): s
     second: "2-digit",
     hour12: false
   }).format(now);
+}
+
+export function getClockData(now: Date, timeZone: string, locale: "en" | "bg") {
+  const { hour, minute, second } = getTimePartsWithSeconds(now, timeZone);
+  const hour12 = hour % 12;
+  const hourAngle = (hour12 + minute / 60) * 30;
+  const minuteAngle = (minute + second / 60) * 6;
+  const secondAngle = second * 6;
+  const isDaytime = hour >= 7 && hour < 19;
+
+  return {
+    hourAngle,
+    minuteAngle,
+    secondAngle,
+    isDaytime,
+    digital: formatClock(timeZone, locale, now)
+  };
 }

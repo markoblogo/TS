@@ -10,7 +10,7 @@ type Props = {
 export function LanguageToggle({ locale, label }: Props) {
   return (
     <div
-      className="inline-flex h-9 items-center gap-2 rounded-full border px-3 text-xs font-medium uppercase tracking-[0.14em]"
+      className="inline-flex h-8 items-center gap-1.5 rounded-full border px-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fg)]"
       role="group"
       aria-label={label}
     >
