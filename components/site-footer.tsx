@@ -1,0 +1,40 @@
+import Link from "next/link";
+
+import { LiveClocks } from "@/components/live-clocks";
+import type { SiteCopy } from "@/lib/copy";
+import type { Locale } from "@/lib/i18n";
+
+type Props = {
+  locale: Locale;
+  copy: SiteCopy;
+};
+
+export function SiteFooter({ locale, copy }: Props) {
+  const hoursText =
+    locale === "bg"
+      ? `Работно време Пон-Пет ${copy.live.clocks.businessWindow.open}-${copy.live.clocks.businessWindow.close} ${copy.live.clocks.businessWindow.tz}`
+      : `Business window Mon-Fri ${copy.live.clocks.businessWindow.open}-${copy.live.clocks.businessWindow.close} ${copy.live.clocks.businessWindow.tz}`;
+
+  return (
+    <footer className="thin-rule mt-20 border-t py-10">
+      <div className="section-shell grid gap-4">
+        <h2 className="text-sm uppercase tracking-[0.2em] text-[var(--muted)]">{copy.live.clocks.title[locale]}</h2>
+        <p className="text-sm text-[var(--muted)]">{hoursText}</p>
+        <LiveClocks
+          locale={locale}
+          zones={copy.live.clocks.zones}
+          businessWindow={copy.live.clocks.businessWindow}
+          openLabel={copy.live.clocks.businessWindow.labels[locale].open}
+          closedLabel={copy.live.clocks.businessWindow.labels[locale].closed}
+          nextWindowLabel={copy.live.clocks.businessWindow.labels[locale].next}
+        />
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-4 text-sm text-[var(--muted)]">
+          <p>{copy.footer[locale].note}</p>
+          <Link href={`/${locale}/privacy`} className="focus-ring hover:text-[var(--fg)]">
+            {copy.footer[locale].privacyLabel}
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
+}
