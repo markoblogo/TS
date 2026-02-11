@@ -49,8 +49,8 @@ export type SiteCopy = {
     };
   };
   contact: Record<Locale, { title: string; lead: string; cards: Array<{ title: string; email: string }> }>;
-  privacy: Record<Locale, { title: string; blocks: string[] }>;
-  footer: Record<Locale, { privacyLabel: string; note: string }>;
+  privacy: Record<Locale, { title: string; sections: Array<{ heading: string; text: string }> }>;
+  footer: Record<Locale, { privacyLabel: string; note: string; businessWindowLabel: string }>;
   ui: Record<Locale, { switchLanguage: string; switchTheme: string; ratesUnavailable: string; themeLight: string; themeDark: string }>;
 };
 
@@ -278,7 +278,9 @@ const siteCopy: SiteCopy = {
         { label: "Sofia", tz: "Europe/Sofia" },
         { label: "Kyiv", tz: "Europe/Kyiv" },
         { label: "New York", tz: "America/New_York" },
-        { label: "London", tz: "Europe/London" }
+        { label: "London", tz: "Europe/London" },
+        { label: "Tokyo", tz: "Asia/Tokyo" },
+        { label: "Hong Kong", tz: "Asia/Hong_Kong" }
       ],
       businessWindow: {
         tz: "Europe/Sofia",
@@ -313,26 +315,66 @@ const siteCopy: SiteCopy = {
   privacy: {
     en: {
       title: "Privacy",
-      blocks: [
-        "This website does not use analytics or marketing cookies.",
-        "We do not collect personal data through forms.",
-        "If you email us, we use your message only to respond to your request.",
-        "You can request deletion of email correspondence by contacting trade@trade-solution.eu."
+      sections: [
+        {
+          heading: "Purpose and scope",
+          text: "This Privacy Notice explains how information is handled when you visit this website and when you contact us by email."
+        },
+        {
+          heading: "Cookies and analytics",
+          text: "This website does not use analytics or marketing cookies. We do not run tracking scripts for profiling or advertising purposes."
+        },
+        {
+          heading: "Information you provide by email",
+          text: "If you contact us at trade@trade-solution.eu or execution@trade-solution.eu, we will process the information you include in your message (such as your name, email address and any business details you share) solely for the purpose of responding to your enquiry and continuing the correspondence you initiated."
+        },
+        {
+          heading: "Data minimisation and retention",
+          text: "We aim to collect only the information necessary to handle your request. We keep correspondence for as long as reasonably required to respond and to maintain a record of business communication."
+        },
+        {
+          heading: "Your request",
+          text: "You may request deletion of email correspondence by contacting trade@trade-solution.eu. We will handle such requests within a reasonable time frame."
+        }
       ]
     },
     bg: {
       title: "Поверителност",
-      blocks: [
-        "Този сайт не използва аналитични или маркетингови „бисквитки“.",
-        "Не събираме лични данни чрез форми.",
-        "Ако ни пишете по имейл, използваме съобщението само за отговор.",
-        "Можете да поискате изтриване на кореспонденцията чрез trade@trade-solution.eu."
+      sections: [
+        {
+          heading: "Цел и обхват",
+          text: "Настоящото Уведомление за поверителност обяснява как се обработва информацията при посещение на този уебсайт и при контакт с нас по имейл."
+        },
+        {
+          heading: "„Бисквитки“ и аналитика",
+          text: "Този сайт не използва аналитични или маркетингови „бисквитки“. Не използваме тракинг скриптове за профилиране или рекламни цели."
+        },
+        {
+          heading: "Информация, предоставена по имейл",
+          text: "Ако се свържете с нас на trade@trade-solution.eu или execution@trade-solution.eu, ще обработим информацията, която включвате в съобщението (например име, имейл адрес и бизнес детайли), единствено с цел да отговорим на запитването и да продължим кореспонденцията, която сте започнали."
+        },
+        {
+          heading: "Минимизиране и съхранение",
+          text: "Стремим се да обработваме само необходимата информация за изпълнение на целта. Съхраняваме кореспонденцията за срок, който е разумно необходим за отговор и за водене на запис на бизнес комуникация."
+        },
+        {
+          heading: "Ваше искане",
+          text: "Можете да поискате изтриване на имейл кореспонденция, като пишете на trade@trade-solution.eu. Ще обработим искането в разумен срок."
+        }
       ]
     }
   },
   footer: {
-    en: { privacyLabel: "Privacy", note: "No analytics. No marketing cookies." },
-    bg: { privacyLabel: "Поверителност", note: "Без аналитика. Без маркетингови „бисквитки“." }
+    en: {
+      privacyLabel: "Privacy",
+      note: "No analytics. No marketing cookies.",
+      businessWindowLabel: "Business window"
+    },
+    bg: {
+      privacyLabel: "Поверителност",
+      note: "Без аналитика. Без маркетингови „бисквитки“.",
+      businessWindowLabel: "Работен прозорец"
+    }
   },
   ui: {
     en: {

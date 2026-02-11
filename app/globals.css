@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --bg: #f3f5f7;
-  --fg: #11161c;
-  --muted: #36414d;
+  --bg: #ffffff;
+  --fg: #111318;
+  --muted: #3f4956;
   --line: #bdc7d3;
   --panel: #ffffff;
   --signal: #0e7c66;
@@ -30,7 +30,7 @@ body {
 }
 
 body {
-  background: radial-gradient(circle at 15% 0%, rgba(14, 124, 102, 0.08), transparent 42%), var(--bg);
+  background: linear-gradient(180deg, #ffffff 0%, #f2f4f7 100%);
   color: var(--fg);
 }
 
@@ -44,6 +44,13 @@ body {
 
 .fx-board {
   text-shadow: 0 0 8px rgba(21, 181, 149, 0.25);
+}
+
+.subtle-grid {
+  background-image:
+    linear-gradient(to right, rgba(93, 104, 120, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(93, 104, 120, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 .reveal {

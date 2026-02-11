@@ -14,13 +14,13 @@ export function LanguageToggle({ locale, label }: Props) {
       role="group"
       aria-label={label}
     >
-      <Link href="/en" lang="en" className={`focus-ring rounded px-1 ${locale === "en" ? "text-[var(--fg)]" : "text-[var(--muted)]"}`}>
+      <Link href="/en" lang="en" className={`focus-ring rounded px-1 ${locale === "en" ? "text-emeraldSignal" : "text-[var(--muted)]"}`}>
         EN
       </Link>
       <span aria-hidden="true" className="text-[var(--muted)]">
         |
       </span>
-      <Link href="/bg" lang="bg" className={`focus-ring rounded px-1 ${locale === "bg" ? "text-[var(--fg)]" : "text-[var(--muted)]"}`}>
+      <Link href="/bg" lang="bg" className={`focus-ring rounded px-1 ${locale === "bg" ? "text-emeraldSignal" : "text-[var(--muted)]"}`}>
         BG
       </Link>
     </div>

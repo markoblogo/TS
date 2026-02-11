@@ -8,6 +8,7 @@ type Props = {
   locale: "en" | "bg";
   zones: Array<{ label: string; tz: string }>;
   businessWindow: { tz: string; open: string; close: string; weekdays: number[] };
+  businessLinePrefix: string;
   openLabel: string;
   closedLabel: string;
   nextWindowLabel: string;
@@ -17,6 +18,7 @@ export function LiveClocks({
   locale,
   zones,
   businessWindow,
+  businessLinePrefix,
   openLabel,
   closedLabel,
   nextWindowLabel
@@ -36,10 +38,21 @@ export function LiveClocks({
   const status = getOfficeStatus(now, locale, businessWindow);
 
   return (
-    <div className="grid gap-3">
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-2">
+      <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
+        <span>{businessLinePrefix}</span>
+        <span aria-live="polite" className={`inline-flex h-2.5 w-2.5 rounded-full ${status.isOpen ? "bg-emeraldSignal animate-pulseSignal" : "bg-rose-500"}`} />
+        <span className="font-mono uppercase tracking-[0.1em] text-[var(--fg)]">
+          {status.isOpen ? openLabel : closedLabel}
+        </span>
+        <span>·</span>
+        <span>
+          {nextWindowLabel}: {status.nextWindowLabel}
+        </span>
+      </div>
+      <div className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-6">
         {clocks.map((clock) => (
-          <div key={clock.city} className="rounded-md border bg-[var(--panel)] p-2">
+          <div key={clock.city} className="rounded-md border bg-[var(--panel)] p-1.5">
             <div className="flex items-center gap-2">
               <svg viewBox="0 0 100 100" className="h-10 w-10 shrink-0" aria-hidden="true">
                 <circle
@@ -88,18 +101,6 @@ export function LiveClocks({
             </div>
           </div>
         ))}
-      </div>
-      <div className="flex flex-wrap items-center gap-2 rounded-md border bg-[var(--panel)] px-3 py-2">
-        <span
-          aria-live="polite"
-          className={`inline-flex h-2.5 w-2.5 rounded-sm ${status.isOpen ? "bg-emeraldSignal animate-pulseSignal" : "bg-[var(--muted)]"}`}
-        />
-        <p className="font-mono text-xs uppercase tracking-[0.14em]">
-          {status.isOpen ? openLabel : closedLabel}
-        </p>
-        <p className="text-xs text-[var(--muted)]">
-          {nextWindowLabel}: {status.nextWindowLabel}
-        </p>
       </div>
     </div>
   );

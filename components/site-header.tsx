@@ -15,7 +15,7 @@ type Props = {
 export async function SiteHeader({ locale, copy }: Props) {
   return (
     <header className="thin-rule border-b">
-      <div className="section-shell flex flex-wrap items-center gap-3 py-3 lg:flex-nowrap lg:justify-between">
+      <div className="section-shell flex flex-wrap items-center gap-2.5 py-2.5 lg:flex-nowrap lg:justify-between">
         <div className="flex items-center gap-5 lg:min-w-0">
           <Link href={`/${locale}`} className="focus-ring flex items-center gap-2.5 rounded">
             <TsLogo priority className="shrink-0" />
@@ -23,7 +23,7 @@ export async function SiteHeader({ locale, copy }: Props) {
               <p className="text-base font-medium tracking-tight">{copy.brand.name}</p>
             </div>
           </Link>
-          <nav className="hidden items-center gap-3 text-sm text-[var(--fg)] lg:flex">
+          <nav className="hidden items-center gap-2.5 text-sm text-[var(--fg)] lg:flex">
             {copy.nav[locale].map((item: { label: string; href: string }) => (
               <Link key={item.href} href={item.href} className="focus-ring rounded px-1 hover:text-emeraldSignal">
                 {item.label}
@@ -35,20 +35,24 @@ export async function SiteHeader({ locale, copy }: Props) {
           </nav>
         </div>
 
-        <div className="lg:min-w-0 lg:flex-1">
+        <div className="min-w-0 lg:flex lg:flex-1 lg:justify-end">
           {copy.live.fx.enabled ? (
-            <FxTicker
-              title={copy.live.fx.title[locale]}
-              pairs={copy.live.fx.pairs}
-              label={copy.live.fx.sourceLabel[locale]}
-              fixedConversion={copy.live.fx.staticNote[locale]}
-              unavailable={copy.ui[locale].ratesUnavailable}
-            />
+            <div className="w-full lg:max-w-[540px]">
+              <FxTicker
+                title={copy.live.fx.title[locale]}
+                pairs={copy.live.fx.pairs}
+                label={copy.live.fx.sourceLabel[locale]}
+                fixedConversion={copy.live.fx.staticNote[locale]}
+                unavailable={copy.ui[locale].ratesUnavailable}
+              />
+            </div>
           ) : null}
         </div>
 
-        <LanguageToggle locale={locale} label={copy.ui[locale].switchLanguage} />
-        <ThemeToggle label={copy.ui[locale].switchTheme} />
+        <div className="ml-auto flex shrink-0 items-center gap-2">
+          <LanguageToggle locale={locale} label={copy.ui[locale].switchLanguage} />
+          <ThemeToggle label={copy.ui[locale].switchTheme} />
+        </div>
       </div>
     </header>
   );
