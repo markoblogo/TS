@@ -16,7 +16,7 @@ type Props = {
   markers: Marker[];
 };
 
-const itemMarkerKeys = ["mk-west", "mk-central", "mk-balkans", "mk-blacksea"];
+const itemMarkerKeys = ["mk-6", "mk-14", "mk-20", "mk-23"];
 
 export function Markets({ title, subtitle, items, markers }: Props) {
   const [activeKey, setActiveKey] = useState<string | null>(null);
@@ -49,7 +49,7 @@ export function Markets({ title, subtitle, items, markers }: Props) {
                     isActive
                       ? "border-emerald-500/55 bg-[rgba(14,124,102,0.08)] shadow-[0_8px_18px_rgba(13,18,26,0.10)]"
                       : "border-[var(--line)] hover:-translate-y-[2px] hover:border-emerald-500/40 hover:shadow-[0_8px_18px_rgba(13,18,26,0.08)]"
-                  }`}
+                  } active:scale-[0.98]`}
                 >
                   {item}
                 </button>

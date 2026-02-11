@@ -201,11 +201,10 @@ const siteCopy: SiteCopy = {
         "Risk limits and scenario gates"
       ],
       markers: [
-        { key: "mk-west", label: "west" },
-        { key: "mk-central", label: "central" },
-        { key: "mk-balkans", label: "balkans" },
-        { key: "mk-blacksea", label: "black sea" },
-        { key: "mk-bg", label: "bg (Bulgaria)" }
+        { key: "mk-6", label: "Western Europe" },
+        { key: "mk-14", label: "Balkans / Bulgaria" },
+        { key: "mk-20", label: "Black Sea routes" },
+        { key: "mk-23", label: "West / South Europe" }
       ]
     },
     bg: {
@@ -218,11 +217,10 @@ const siteCopy: SiteCopy = {
         "Риск лимити и сценарии"
       ],
       markers: [
-        { key: "mk-west", label: "запад" },
-        { key: "mk-central", label: "център" },
-        { key: "mk-balkans", label: "балкани" },
-        { key: "mk-blacksea", label: "черно море" },
-        { key: "mk-bg", label: "bg (България)" }
+        { key: "mk-6", label: "Западна Европа" },
+        { key: "mk-14", label: "Балкани / България" },
+        { key: "mk-20", label: "Черноморски маршрути" },
+        { key: "mk-23", label: "Запад / Юг Европа" }
       ]
     }
   },

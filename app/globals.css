@@ -152,6 +152,11 @@ body {
   box-shadow: 0 12px 24px rgba(13, 18, 26, 0.1);
 }
 
+.interactive-card:focus-within {
+  outline: 2px solid rgba(14, 124, 102, 0.7);
+  outline-offset: 2px;
+}
+
 .facts-item {
   opacity: 0;
   transform: translateY(8px);

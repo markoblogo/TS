@@ -65,6 +65,7 @@ export default async function HomePage({
           <section className="relative min-h-[420px] overflow-hidden rounded-xl border bg-[var(--panel)] md:min-h-[460px]">
             <HeroMedia />
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[70%] bg-gradient-to-r from-white/85 via-white/45 to-transparent dark:from-black/70 dark:via-black/35 dark:to-transparent md:w-[62%] lg:w-[55%]" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.20),transparent_54%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(0,0,0,0.24),transparent_56%)]" />
             <div className="subtle-grid pointer-events-none absolute inset-0 z-10 opacity-30" />
             <div className="pointer-events-none absolute -left-3 bottom-2 z-10 text-[120px] font-light leading-none tracking-tight text-[var(--fg)] opacity-[0.07] md:text-[210px]">
               TS
@@ -72,7 +73,7 @@ export default async function HomePage({
 
             <div className="relative z-20 grid gap-5 p-5 md:p-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-6">
               <div className="grid content-start gap-4">
-                <div className="max-w-[520px] rounded-2xl bg-white/55 p-5 backdrop-blur-md ring-1 ring-black/10 dark:bg-black/35 dark:ring-white/10 lg:max-w-[560px] lg:p-6">
+                <div className="max-w-[520px] rounded-2xl bg-white/75 p-5 shadow-[0_12px_34px_rgba(0,0,0,0.12)] backdrop-blur-md ring-1 ring-black/10 dark:bg-black/50 dark:shadow-[0_14px_36px_rgba(0,0,0,0.2)] dark:ring-white/10 lg:ml-5 lg:max-w-[560px] lg:p-6">
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
                   <h1 className="hero-heading-shadow mt-2 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">
                     {hero.h1Lines.map((line) => (
@@ -106,7 +107,7 @@ export default async function HomePage({
               </div>
 
               {copy.live.fx.enabled ? (
-                <aside className="w-full max-w-[360px] lg:justify-self-end">
+                <aside className="w-full max-w-[360px] lg:self-start lg:justify-self-end">
                   <FxTicker
                     title="FX REFERENCE RATES"
                     pairs={copy.live.fx.pairs}
