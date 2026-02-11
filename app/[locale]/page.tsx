@@ -71,7 +71,7 @@ export default async function HomePage({
 
             <div className="relative z-20 grid gap-5 p-5 md:p-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-6">
               <div className="grid content-start gap-4">
-                <div className="max-w-3xl rounded-2xl border border-black/10 bg-white/70 p-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-black/35 md:p-5">
+                <div className="max-w-[520px] rounded-2xl border border-white/25 bg-white/55 p-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md dark:border-white/10 dark:bg-black/40 dark:shadow-[0_14px_44px_rgba(0,0,0,0.28)] md:p-6 xl:max-w-[560px]">
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
                   <h1 className="mt-2 max-w-4xl text-4xl font-semibold tracking-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_2px_2px_rgba(0,0,0,0.28)] md:text-6xl">
                     {hero.h1Lines.map((line) => (
@@ -130,7 +130,7 @@ export default async function HomePage({
             {solutions.items.map((item) => (
               <article
                 key={item.title}
-                className="rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#7f8ea0] hover:shadow-[0_10px_20px_rgba(13,18,26,0.1)]"
+                className="interactive-card rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)]"
               >
                 <h3 className="mb-2 text-lg">{item.title}</h3>
                 <p className="text-sm text-[var(--muted)]">{item.text}</p>
@@ -148,7 +148,7 @@ export default async function HomePage({
             {process.steps.map((step) => (
               <article
                 key={step.title}
-                className="rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#7f8ea0] hover:shadow-[0_10px_20px_rgba(13,18,26,0.1)]"
+                className="interactive-card rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)]"
               >
                 <h3 className="mb-2 text-lg">{step.title}</h3>
                 <p className="mb-3 text-sm text-[var(--muted)]">{step.text}</p>
@@ -177,7 +177,7 @@ export default async function HomePage({
           </h2>
           <p className="mb-3 text-[var(--muted)]">{scope.subtitle}</p>
           <div className="grid gap-3 md:grid-cols-2">
-            <section className="rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#7f8ea0] hover:shadow-[0_10px_20px_rgba(13,18,26,0.1)]">
+            <section className="interactive-card rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)]">
               <h3 className="mb-3 text-sm uppercase tracking-[0.2em] text-[var(--muted)]">{scope.matrix.leftTitle}</h3>
               <ul className="grid gap-2">
                 {scope.matrix.leftItems.map((item) => (
@@ -187,7 +187,7 @@ export default async function HomePage({
                 ))}
               </ul>
             </section>
-            <section className="rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#7f8ea0] hover:shadow-[0_10px_20px_rgba(13,18,26,0.1)]">
+            <section className="interactive-card rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)]">
               <h3 className="mb-3 text-sm uppercase tracking-[0.2em] text-[var(--muted)]">{scope.matrix.rightTitle}</h3>
               <ul className="grid gap-2">
                 {scope.matrix.rightItems.map((item) => (
@@ -218,7 +218,7 @@ export default async function HomePage({
             {faq.items.map((item) => (
               <details
                 key={item.q}
-                className="rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#7f8ea0] hover:shadow-[0_10px_20px_rgba(13,18,26,0.1)]"
+                className="interactive-card rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)]"
               >
                 <summary className="cursor-pointer text-base font-medium">{item.q}</summary>
                 <p className="mt-3 text-sm text-[var(--muted)]">{item.a}</p>
@@ -237,7 +237,7 @@ export default async function HomePage({
             {contact.cards.map((card) => (
               <article
                 key={card.email}
-                className="rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#7f8ea0] hover:shadow-[0_10px_20px_rgba(13,18,26,0.1)]"
+                className="interactive-card rounded-lg border bg-[var(--panel)] p-3.5 shadow-[0_2px_8px_rgba(13,18,26,0.05)]"
               >
                 <h3 className="mb-2 text-lg">{card.title}</h3>
                 <Link className="focus-ring font-mono text-sm hover:underline" href={`mailto:${card.email}`}>

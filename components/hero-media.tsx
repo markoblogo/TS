@@ -27,7 +27,7 @@ export function HeroMedia() {
     if (reducedMotion) return;
     const timer = window.setInterval(() => {
       setIndex((current) => (current + 1) % MEDIA.length);
-    }, 7000);
+    }, 8500);
 
     return () => window.clearInterval(timer);
   }, [reducedMotion]);
@@ -54,7 +54,7 @@ export function HeroMedia() {
         return (
           <div
             key={src}
-            className={`absolute inset-0 transition-opacity duration-1000 ${isActive ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 transition-opacity duration-800 ${isActive ? "opacity-100" : "opacity-0"}`}
             style={{ transform: `translateY(${reducedMotion ? 0 : offsetY}px)` }}
           >
             <Image
@@ -69,9 +69,20 @@ export function HeroMedia() {
         );
       })}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/35 to-transparent dark:from-black/70 dark:via-black/35 dark:to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.36),transparent_58%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(0,0,0,0.38),transparent_58%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(14,124,102,0.12),transparent_44%)] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(25,161,131,0.16),transparent_46%)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/35 to-transparent dark:from-black/70 dark:via-black/40 dark:to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24),transparent_56%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(0,0,0,0.3),transparent_58%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(14,124,102,0.10),transparent_42%)] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(25,161,131,0.14),transparent_44%)]" />
+
+      <div className="pointer-events-none absolute bottom-3.5 right-3.5 z-20 flex items-center gap-1.5">
+        {MEDIA.map((_, i) => (
+          <span
+            key={i}
+            className={`inline-flex h-1.5 w-1.5 rounded-full border border-white/50 ${
+              i === index ? "bg-emeraldSignal" : "bg-white/60 dark:bg-white/30"
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

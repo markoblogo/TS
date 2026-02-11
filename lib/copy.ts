@@ -201,11 +201,11 @@ const siteCopy: SiteCopy = {
         "Risk limits and scenario gates"
       ],
       markers: [
-        { key: "bg", label: "bg (Bulgaria)" },
-        { key: "central-europe", label: "central-europe" },
-        { key: "balkans", label: "balkans" },
-        { key: "western-europe", label: "western-europe" },
-        { key: "black-sea-routes", label: "black-sea-routes" }
+        { key: "mk-west", label: "west" },
+        { key: "mk-central", label: "central" },
+        { key: "mk-balkans", label: "balkans" },
+        { key: "mk-blacksea", label: "black sea" },
+        { key: "mk-bg", label: "bg (Bulgaria)" }
       ]
     },
     bg: {
@@ -218,11 +218,11 @@ const siteCopy: SiteCopy = {
         "Риск лимити и сценарии"
       ],
       markers: [
-        { key: "bg", label: "bg (България)" },
-        { key: "central-europe", label: "централна-европа" },
-        { key: "balkans", label: "балкани" },
-        { key: "western-europe", label: "западна-европа" },
-        { key: "black-sea-routes", label: "черноморски-маршрути" }
+        { key: "mk-west", label: "запад" },
+        { key: "mk-central", label: "център" },
+        { key: "mk-balkans", label: "балкани" },
+        { key: "mk-blacksea", label: "черно море" },
+        { key: "mk-bg", label: "bg (България)" }
       ]
     }
   },

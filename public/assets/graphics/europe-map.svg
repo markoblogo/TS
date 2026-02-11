@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Europe map">
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f7f9"/>
+      <stop offset="1" stop-color="#eef1f4"/>
+    </linearGradient>
+
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7ebf0"/>
+      <stop offset="1" stop-color="#dfe5ec"/>
+    </linearGradient>
+
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#cfd6dd" stroke-opacity="0.35" stroke-width="1"/>
+    </pattern>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- panel background -->
+  <rect x="28" y="28" width="844" height="504" rx="28" fill="url(#sea)" />
+  <rect x="28" y="28" width="844" height="504" rx="28" fill="url(#grid)" opacity="0.65"/>
+
+  <!-- Europe silhouette (stylized) -->
+  <path
+    d="M176 338
+       C150 306,144 280,156 250
+       C168 220,194 204,222 198
+       C242 166,276 148,316 146
+       C356 144,388 152,410 164
+       C430 132,468 110,514 110
+       C564 110,606 132,634 160
+       C662 142,694 140,724 154
+       C764 174,792 214,790 252
+       C788 286,766 314,740 326
+       C746 350,742 372,726 392
+       C706 418,676 426,642 424
+       C612 456,560 472,508 466
+       C468 462,432 446,410 420
+       C380 442,344 452,306 444
+       C264 436,216 404,200 374
+       C188 356,184 348,176 338 Z"
+    fill="url(#land)"
+    stroke="#c7ced6"
+    stroke-width="2"
+    filter="url(#softShadow)"
+  />
+
+  <!-- Bulgaria highlight (stylized position) -->
+  <path
+    id="bg-area"
+    d="M545 348
+       C560 338,584 338,602 346
+       C618 354,618 372,602 382
+       C584 392,560 392,546 382
+       C532 372,532 356,545 348 Z"
+    fill="#17a673"
+    fill-opacity="0.85"
+    stroke="#0f7f56"
+    stroke-width="2"
+  />
+
+  <!-- Route / region markers (no text) -->
+  <!-- ids are used for hover-linking from the list -->
+  <g id="markers">
+    <circle id="mk-west" cx="315" cy="285" r="8" fill="#17a673" fill-opacity="0.9" />
+    <circle id="mk-central" cx="430" cy="250" r="8" fill="#17a673" fill-opacity="0.9" />
+    <circle id="mk-balkans" cx="520" cy="330" r="8" fill="#17a673" fill-opacity="0.9" />
+    <circle id="mk-blacksea" cx="625" cy="358" r="8" fill="#17a673" fill-opacity="0.9" />
+    <circle id="mk-bg" cx="575" cy="366" r="10" fill="#17a673" />
+  </g>
+
+  <!-- subtle connector lines -->
+  <g stroke="#17a673" stroke-opacity="0.35" stroke-width="2" fill="none">
+    <path d="M315 285 L430 250 L520 330 L625 358" />
+  </g>
+
+  <!-- corner frame -->
+  <rect x="28" y="28" width="844" height="504" rx="28" fill="none" stroke="#d3d9e0" stroke-opacity="0.7"/>
+</svg>

@@ -16,7 +16,7 @@ type Props = {
   markers: Marker[];
 };
 
-const itemMarkerKeys = ["bg", "central-europe", "western-europe", "black-sea-routes"];
+const itemMarkerKeys = ["mk-west", "mk-central", "mk-balkans", "mk-blacksea"];
 
 export function Markets({ title, subtitle, items, markers }: Props) {
   const [activeKey, setActiveKey] = useState<string | null>(null);
@@ -47,8 +47,8 @@ export function Markets({ title, subtitle, items, markers }: Props) {
                   onBlur={() => setActiveKey(null)}
                   className={`w-full rounded-md border px-3 py-2 text-left text-sm transition-all duration-200 ${
                     isActive
-                      ? "border-emerald-500/50 bg-[rgba(14,124,102,0.08)] shadow-[0_6px_14px_rgba(13,18,26,0.08)]"
-                      : "border-[var(--line)] hover:border-emerald-500/40 hover:-translate-y-px"
+                      ? "border-emerald-500/55 bg-[rgba(14,124,102,0.08)] shadow-[0_8px_18px_rgba(13,18,26,0.10)]"
+                      : "border-[var(--line)] hover:-translate-y-[2px] hover:border-emerald-500/40 hover:shadow-[0_8px_18px_rgba(13,18,26,0.08)]"
                   }`}
                 >
                   {item}
