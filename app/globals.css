@@ -94,32 +94,30 @@ body {
   animation: kenBurns 9s ease-out forwards;
 }
 
-@keyframes scan {
+@keyframes sheen {
   0%,
-  70%,
   100% {
-    transform: translateY(-100%);
+    transform: translateX(-140%);
     opacity: 0;
   }
-  76% {
-    transform: translateY(-20%);
-    opacity: 0.12;
+  14% {
+    opacity: 0.06;
   }
-  88% {
-    transform: translateY(120%);
+  24% {
+    transform: translateX(140%);
     opacity: 0;
   }
 }
 
-.fx-scanline::before {
+.fx-sheen::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 26%;
-  background: linear-gradient(180deg, rgba(14, 124, 102, 0.12), rgba(14, 124, 102, 0));
-  animation: scan 8s ease-in-out infinite;
+  top: -40%;
+  bottom: -40%;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.24), transparent);
+  filter: blur(1px);
+  animation: sheen 8s ease-in-out infinite;
 }
 
 @keyframes markerPulse {
@@ -138,6 +136,10 @@ body {
 
 .map-marker {
   animation: markerPulse 5.2s ease-in-out infinite;
+}
+
+.map-marker-active {
+  animation-duration: 3.8s;
 }
 
 .interactive-card {
@@ -169,6 +171,22 @@ body {
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.hero-heading-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.hero-copy-shadow {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
+}
+
+.dark .hero-heading-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.42);
+}
+
+.dark .hero-copy-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.36);
 }
 
 .focus-ring {

@@ -69,10 +69,6 @@ export function HeroMedia() {
         );
       })}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/35 to-transparent dark:from-black/70 dark:via-black/40 dark:to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24),transparent_56%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(0,0,0,0.3),transparent_58%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(14,124,102,0.10),transparent_42%)] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(25,161,131,0.14),transparent_44%)]" />
-
       <div className="pointer-events-none absolute bottom-3.5 right-3.5 z-20 flex items-center gap-1.5">
         {MEDIA.map((_, i) => (
           <span

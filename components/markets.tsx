@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import { EuropeMap } from "@/components/europe-map";
+import { MarketsMap } from "@/components/markets-map";
 
 type Marker = {
   key: string;
@@ -28,7 +28,7 @@ export function Markets({ title, subtitle, items, markers }: Props) {
 
   return (
     <section id="markets" className="grid gap-4 lg:grid-cols-[1.1fr_1fr] lg:items-start">
-      <EuropeMap markers={markers} activeKey={activeKey} onMarkerEnter={setActiveKey} onMarkerLeave={() => setActiveKey(null)} />
+      <MarketsMap markers={markers} activeKey={activeKey} onMarkerEnter={setActiveKey} onMarkerLeave={() => setActiveKey(null)} />
 
       <article className="rounded-xl border bg-[var(--panel)] p-4 shadow-[0_8px_24px_rgba(13,18,26,0.08)]">
         <h2 className="mb-2 text-2xl font-semibold tracking-tight">{title}</h2>
