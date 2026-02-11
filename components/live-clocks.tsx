@@ -42,7 +42,7 @@ export function LiveClocks({
       <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
         <span>{businessLinePrefix}</span>
         <span aria-live="polite" className={`inline-flex h-2.5 w-2.5 rounded-full ${status.isOpen ? "bg-emeraldSignal animate-pulseSignal" : "bg-rose-500"}`} />
-        <span className="font-mono uppercase tracking-[0.1em] text-[var(--fg)]">
+        <span className={`font-mono uppercase tracking-[0.1em] ${status.isOpen ? "text-emeraldSignal" : "text-rose-400"}`}>
           {status.isOpen ? openLabel : closedLabel}
         </span>
         <span>·</span>

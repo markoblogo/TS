@@ -5,24 +5,24 @@
 :root {
   --background: #ffffff;
   --foreground: #111318;
-  --background-image: linear-gradient(180deg, #ffffff 0%, #f2f4f7 100%);
+  --background-image: linear-gradient(180deg, #ffffff 0%, #f3f5f7 100%);
   --bg: #ffffff;
   --fg: #111318;
-  --muted: #3f4956;
-  --line: #bdc7d3;
+  --muted: #353f4c;
+  --line: #acb8c6;
   --panel: #ffffff;
   --signal: #0e7c66;
 }
 
 .dark {
-  --background: #0f1116;
+  --background: #0c1118;
   --foreground: #f4f8fc;
   --background-image: none;
-  --bg: #080c10;
+  --bg: #0c1118;
   --fg: #f4f8fc;
-  --muted: #b7c3d2;
-  --line: #334251;
-  --panel: #0f151c;
+  --muted: #aebdce;
+  --line: #3a4b5d;
+  --panel: #101823;
   --signal: #19a183;
 }
 
@@ -66,6 +66,19 @@ body {
     linear-gradient(to right, rgba(93, 104, 120, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(93, 104, 120, 0.08) 1px, transparent 1px);
   background-size: 44px 44px;
+}
+
+@keyframes heroZoom {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-heroZoom {
+  animation: heroZoom 7s ease-out forwards;
 }
 
 .reveal {

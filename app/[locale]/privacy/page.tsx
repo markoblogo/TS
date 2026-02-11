@@ -37,17 +37,19 @@ export default async function PrivacyPage({
   return (
     <div className="min-h-screen">
       <SiteHeader locale={locale} copy={copy} />
-      <main className="section-shell py-9 md:py-12">
-        <article className="mx-auto max-w-3xl space-y-5">
+      <main className="section-shell py-8 md:py-10">
+        <article className="mx-auto max-w-3xl rounded-xl border bg-[var(--panel)] p-5 shadow-[0_8px_22px_rgba(13,18,26,0.08)] md:p-7">
           <header>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">{copy.privacy[locale].title}</h1>
           </header>
-          {copy.privacy[locale].sections.map((section) => (
-            <section key={section.heading} className="space-y-2.5">
-              <h2 className="text-lg font-semibold">{section.heading}</h2>
-              <p className="leading-relaxed text-[var(--muted)]">{section.text}</p>
-            </section>
-          ))}
+          <div className="mt-5 grid gap-4">
+            {copy.privacy[locale].sections.map((section) => (
+              <section key={section.heading} className="space-y-2 border-l-2 border-[var(--line)] pl-4">
+                <h2 className="text-lg font-semibold">{section.heading}</h2>
+                <p className="leading-relaxed text-[var(--muted)]">{section.text}</p>
+              </section>
+            ))}
+          </div>
         </article>
       </main>
     </div>
