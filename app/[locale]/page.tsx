@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { FactsStrip } from "@/components/facts-strip";
 import { FxTicker } from "@/components/fx-ticker";
 import { HeroMedia } from "@/components/hero-media";
+import { Markets } from "@/components/markets";
+import { OperationalNetwork } from "@/components/operational-network";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -25,6 +28,9 @@ export default async function HomePage({
   const hero = copy.hero[locale];
   const solutions = copy.solutions[locale];
   const process = copy.process[locale];
+  const factsStrip = copy.factsStrip[locale];
+  const markets = copy.markets[locale];
+  const network = copy.network[locale];
   const scope = copy.scope[locale];
   const about = copy.about[locale];
   const faq = copy.faq[locale];
@@ -65,34 +71,36 @@ export default async function HomePage({
 
             <div className="relative z-20 grid gap-5 p-5 md:p-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-6">
               <div className="grid content-start gap-4">
-                <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
-                <h1 className="max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">
-                  {hero.h1Lines.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </h1>
-                <p className="max-w-4xl text-base text-[var(--muted)] md:text-[17px]">
-                  {hero.leadLines.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <Link
-                    className="focus-ring rounded border border-emeraldSignal bg-emeraldSignal px-3.5 py-2 text-sm font-medium text-white shadow-[0_0_0_rgba(14,124,102,0)] transition-all duration-200 hover:bg-[#0a6b58] hover:shadow-[0_0_20px_rgba(14,124,102,0.25)] active:bg-[#095a4b]"
-                    href={hero.ctaPrimary.href}
-                  >
-                    {hero.ctaPrimary.label}
-                  </Link>
-                  <Link
-                    className="focus-ring rounded border border-emeraldSignal px-3.5 py-2 text-sm font-medium text-[var(--fg)] transition-colors duration-200 hover:bg-[rgba(14,124,102,0.08)] active:bg-[rgba(14,124,102,0.14)]"
-                    href={hero.ctaSecondary.href}
-                  >
-                    {hero.ctaSecondary.label}
-                  </Link>
+                <div className="max-w-3xl rounded-2xl border border-black/10 bg-white/70 p-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-black/35 md:p-5">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
+                  <h1 className="mt-2 max-w-4xl text-4xl font-semibold tracking-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_2px_2px_rgba(0,0,0,0.28)] md:text-6xl">
+                    {hero.h1Lines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </h1>
+                  <p className="mt-3 max-w-4xl text-base text-[var(--muted)] md:text-[17px]">
+                    {hero.leadLines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center gap-2.5">
+                    <Link
+                      className="focus-ring rounded border border-emeraldSignal bg-emeraldSignal px-3.5 py-2 text-sm font-medium text-white shadow-[0_0_0_rgba(14,124,102,0)] transition-all duration-200 hover:-translate-y-px hover:bg-[#0a6b58] hover:shadow-[0_0_20px_rgba(14,124,102,0.25)] active:scale-[0.98] active:bg-[#095a4b]"
+                      href={hero.ctaPrimary.href}
+                    >
+                      {hero.ctaPrimary.label}
+                    </Link>
+                    <Link
+                      className="focus-ring rounded border border-emeraldSignal px-3.5 py-2 text-sm font-medium text-[var(--fg)] transition-all duration-200 hover:-translate-y-px hover:bg-[rgba(14,124,102,0.08)] active:scale-[0.98] active:bg-[rgba(14,124,102,0.14)]"
+                      href={hero.ctaSecondary.href}
+                    >
+                      {hero.ctaSecondary.label}
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -148,6 +156,18 @@ export default async function HomePage({
               </article>
             ))}
           </div>
+        </Reveal>
+
+        <Reveal className="thin-rule border-t py-6">
+          <FactsStrip items={factsStrip.items} />
+        </Reveal>
+
+        <Reveal className="thin-rule border-t py-6">
+          <Markets title={markets.title} subtitle={markets.subtitle} items={markets.items} markers={markets.markers} />
+        </Reveal>
+
+        <Reveal className="thin-rule border-t py-6">
+          <OperationalNetwork title={network.title} items={network.items} />
         </Reveal>
 
         <Reveal className="thin-rule border-t py-6" id="scope">

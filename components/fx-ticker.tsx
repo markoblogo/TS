@@ -17,11 +17,12 @@ export async function FxTicker({ title, label, fixedConversion, unavailable, pai
 
     return (
       <div
-        className="min-w-0 rounded-lg border border-[var(--line)] bg-[color:color-mix(in_oklab,var(--panel)_88%,transparent)] px-3 py-2 shadow-[0_8px_24px_rgba(16,20,28,0.08)] backdrop-blur-sm"
+        className="relative min-w-0 overflow-hidden rounded-lg border border-black/10 bg-white/80 px-3 py-2 shadow-[0_8px_24px_rgba(16,20,28,0.08)] backdrop-blur-md dark:border-white/10 dark:bg-black/45"
         aria-label={title}
       >
+        <span className="fx-scanline pointer-events-none absolute inset-0" aria-hidden="true" />
         <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">{title}</p>
-        <p className="truncate whitespace-nowrap font-mono text-[11px] leading-tight tracking-[0.08em]">
+        <p className="max-w-full truncate whitespace-nowrap font-mono text-[11px] leading-tight tracking-[0.08em]">
           {rates.map((rate, idx) => (
             <span key={rate.code}>
               <span className="text-[var(--fg)]">{`EUR/${rate.code}`}</span>{" "}
@@ -41,11 +42,12 @@ export async function FxTicker({ title, label, fixedConversion, unavailable, pai
   } catch {
     return (
       <div
-        className="min-w-0 rounded-lg border border-[var(--line)] bg-[color:color-mix(in_oklab,var(--panel)_88%,transparent)] px-3 py-2 shadow-[0_8px_24px_rgba(16,20,28,0.08)] backdrop-blur-sm"
+        className="relative min-w-0 overflow-hidden rounded-lg border border-black/10 bg-white/80 px-3 py-2 shadow-[0_8px_24px_rgba(16,20,28,0.08)] backdrop-blur-md dark:border-white/10 dark:bg-black/45"
         aria-live="polite"
       >
+        <span className="fx-scanline pointer-events-none absolute inset-0" aria-hidden="true" />
         <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">{title}</p>
-        <p className="truncate whitespace-nowrap font-mono text-[11px] leading-tight tracking-[0.08em] text-emeraldSignal">{unavailable}</p>
+        <p className="max-w-full truncate whitespace-nowrap font-mono text-[11px] leading-tight tracking-[0.08em] text-emeraldSignal">{unavailable}</p>
         <p className="mt-0.5 truncate whitespace-nowrap font-mono text-[10px] leading-tight tracking-[0.05em] text-[var(--muted)]">
           {label}
         </p>

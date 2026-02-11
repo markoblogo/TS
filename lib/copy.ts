@@ -16,6 +16,9 @@ export type SiteCopy = {
   hero: Record<Locale, { h1Lines: string[]; leadLines: string[]; ctaPrimary: Cta; ctaSecondary: Cta }>;
   solutions: Record<Locale, { title: string; subtitle: string; items: Array<{ title: string; text: string }> }>;
   process: Record<Locale, { title: string; steps: Array<{ title: string; text: string; meta: string[] }> }>;
+  factsStrip: Record<Locale, { items: string[] }>;
+  markets: Record<Locale, { title: string; subtitle: string; items: string[]; markers: Array<{ key: string; label: string }> }>;
+  network: Record<Locale, { title: string; items: string[] }>;
   scope: Record<
     Locale,
     {
@@ -167,6 +170,70 @@ const siteCopy: SiteCopy = {
         { title: "Структура и изпълнение", text: "Договорна логика и контрол.", meta: ["документи", "маршрути", "план"] },
         { title: "Преглед и адаптация", text: "Обратна връзка и корекции.", meta: ["преглед", "корекции", "отчет"] }
       ]
+    }
+  },
+  factsStrip: {
+    en: {
+      items: [
+        "European markets focus",
+        "Structured risk parameters",
+        "Contract-ready documentation",
+        "Execution coordination"
+      ]
+    },
+    bg: {
+      items: [
+        "Фокус върху европейските пазари",
+        "Структурирани риск параметри",
+        "Документация, готова за договор",
+        "Координация на изпълнението"
+      ]
+    }
+  },
+  markets: {
+    en: {
+      title: "Markets / Geography",
+      subtitle: "Structured coordination across practical European routes and handover points.",
+      items: [
+        "Market entry planning",
+        "Routing & timing constraints",
+        "Documentation & handover",
+        "Risk limits and scenario gates"
+      ],
+      markers: [
+        { key: "bg", label: "bg (Bulgaria)" },
+        { key: "central-europe", label: "central-europe" },
+        { key: "balkans", label: "balkans" },
+        { key: "western-europe", label: "western-europe" },
+        { key: "black-sea-routes", label: "black-sea-routes" }
+      ]
+    },
+    bg: {
+      title: "Пазари / География",
+      subtitle: "Структурирана координация по практични европейски маршрути и точки за предаване.",
+      items: [
+        "Планиране на пазарен достъп",
+        "Ограничения: маршрути и срокове",
+        "Документация и предаване",
+        "Риск лимити и сценарии"
+      ],
+      markers: [
+        { key: "bg", label: "bg (България)" },
+        { key: "central-europe", label: "централна-европа" },
+        { key: "balkans", label: "балкани" },
+        { key: "western-europe", label: "западна-европа" },
+        { key: "black-sea-routes", label: "черноморски-маршрути" }
+      ]
+    }
+  },
+  network: {
+    en: {
+      title: "Operational network",
+      items: ["processors", "trading companies", "logistics operators", "institutional counterparties"]
+    },
+    bg: {
+      title: "Оперативна мрежа",
+      items: ["преработватели", "търговски компании", "логистични оператори", "институционални контрагенти"]
     }
   },
   scope: {
