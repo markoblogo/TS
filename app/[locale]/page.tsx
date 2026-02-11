@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { FxTicker } from "@/components/fx-ticker";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -58,36 +59,49 @@ export default async function HomePage({
         </div>
         <div className="subtle-grid pointer-events-none absolute inset-x-0 top-0 z-0 h-[320px] opacity-40" />
 
-        <Reveal className="relative z-10 grid gap-5 pb-7">
-          <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
-          <h1 className="max-w-4xl text-4xl font-light tracking-tight md:text-6xl">
-            {hero.h1Lines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </h1>
-          <p className="max-w-4xl text-base text-[var(--muted)] md:text-[17px]">
-            {hero.leadLines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </p>
-          <div className="flex flex-wrap items-center gap-2.5">
-            <Link
-              className="focus-ring rounded border border-emeraldSignal bg-emeraldSignal px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0a6b58] active:bg-[#095a4b]"
-              href={hero.ctaPrimary.href}
-            >
-              {hero.ctaPrimary.label}
-            </Link>
-            <Link
-              className="focus-ring rounded border border-emeraldSignal px-3.5 py-2 text-sm font-medium text-[var(--fg)] transition-colors hover:bg-[rgba(14,124,102,0.08)] active:bg-[rgba(14,124,102,0.14)]"
-              href={hero.ctaSecondary.href}
-            >
-              {hero.ctaSecondary.label}
-            </Link>
+        <Reveal className="relative z-10 grid gap-5 pb-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
+          <div className="grid gap-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
+            <h1 className="max-w-4xl text-4xl font-light tracking-tight md:text-6xl">
+              {hero.h1Lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </h1>
+            <p className="max-w-4xl text-base text-[var(--muted)] md:text-[17px]">
+              {hero.leadLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </p>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <Link
+                className="focus-ring rounded border border-emeraldSignal bg-emeraldSignal px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0a6b58] active:bg-[#095a4b]"
+                href={hero.ctaPrimary.href}
+              >
+                {hero.ctaPrimary.label}
+              </Link>
+              <Link
+                className="focus-ring rounded border border-emeraldSignal px-3.5 py-2 text-sm font-medium text-[var(--fg)] transition-colors hover:bg-[rgba(14,124,102,0.08)] active:bg-[rgba(14,124,102,0.14)]"
+                href={hero.ctaSecondary.href}
+              >
+                {hero.ctaSecondary.label}
+              </Link>
+            </div>
           </div>
+          {copy.live.fx.enabled ? (
+            <aside className="w-full max-w-[360px] lg:justify-self-end">
+              <FxTicker
+                title="FX REFERENCE RATES"
+                pairs={copy.live.fx.pairs}
+                label={copy.live.fx.sourceLabel[locale]}
+                fixedConversion={copy.live.fx.staticNote[locale]}
+                unavailable={copy.ui[locale].ratesUnavailable}
+              />
+            </aside>
+          ) : null}
         </Reveal>
 
         <Reveal className="thin-rule border-t py-7" id="solutions">
