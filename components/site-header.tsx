@@ -12,6 +12,8 @@ type Props = {
 };
 
 export async function SiteHeader({ locale, copy }: Props) {
+  const brandNavItem = copy.nav[locale].find((item) => item.href.endsWith("/brand"));
+
   return (
     <header className="thin-rule border-b">
       <div className="section-shell flex items-center justify-between gap-3 py-2.5">
@@ -35,6 +37,11 @@ export async function SiteHeader({ locale, copy }: Props) {
         </div>
 
         <div className="ml-auto flex shrink-0 items-center gap-2">
+          {brandNavItem ? (
+            <Link href={brandNavItem.href} className="focus-ring rounded px-1 text-sm hover:text-emeraldSignal lg:hidden">
+              {brandNavItem.label}
+            </Link>
+          ) : null}
           <LanguageToggle locale={locale} label={copy.ui[locale].switchLanguage} />
           <ThemeToggle label={copy.ui[locale].switchTheme} />
         </div>

@@ -63,6 +63,15 @@ export type SiteCopy = {
     };
   };
   contact: Record<Locale, { title: string; lead: string; cards: Array<{ title: string; email: string }> }>;
+  brandPage: Record<
+    Locale,
+    {
+      title: string;
+      subtitle: string;
+      sections: { logos: string; mockups: string };
+      actions: { open: string; download: string; close: string; zoom: string };
+    }
+  >;
   privacy: Record<Locale, { title: string; sections: Array<{ heading: string; text: string }> }>;
   footer: Record<Locale, { privacyLabel: string; note: string; businessWindowLabel: string }>;
   ui: Record<Locale, { switchLanguage: string; switchTheme: string; ratesUnavailable: string; themeLight: string; themeDark: string }>;
@@ -107,6 +116,7 @@ const siteCopy: SiteCopy = {
       { label: "Process", href: "#process" },
       { label: "Scope", href: "#scope" },
       { label: "About", href: "#about" },
+      { label: "Brand", href: "/en/brand" },
       { label: "FAQ", href: "#faq" },
       { label: "Contact", href: "#contact" }
     ],
@@ -115,6 +125,7 @@ const siteCopy: SiteCopy = {
       { label: "Процес", href: "#process" },
       { label: "Обхват", href: "#scope" },
       { label: "За нас", href: "#about" },
+      { label: "Бранд", href: "/bg/brand" },
       { label: "Въпроси", href: "#faq" },
       { label: "Контакти", href: "#contact" }
     ]
@@ -422,6 +433,20 @@ const siteCopy: SiteCopy = {
         { title: "Търговия и партньорства", email: "trade@trade-solution.eu" },
         { title: "Изпълнение и операции", email: "execution@trade-solution.eu" }
       ]
+    }
+  },
+  brandPage: {
+    en: {
+      title: "Brand assets",
+      subtitle: "Logos and mockups for reference.",
+      sections: { logos: "Logos", mockups: "Mockups" },
+      actions: { open: "Open", download: "Download", close: "Close", zoom: "Zoom" }
+    },
+    bg: {
+      title: "Бранд материали",
+      subtitle: "Лога и мокъпи за референция.",
+      sections: { logos: "Лога", mockups: "Мокъпи" },
+      actions: { open: "Отвори", download: "Изтегли", close: "Затвори", zoom: "Увеличи" }
     }
   },
   privacy: {
