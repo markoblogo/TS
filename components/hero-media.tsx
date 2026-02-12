@@ -69,7 +69,7 @@ export function HeroMedia() {
         );
       })}
 
-      <div className="pointer-events-none absolute bottom-3.5 right-3.5 z-20 flex items-center gap-1.5">
+      <div className="pointer-events-none absolute bottom-2.5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 sm:bottom-3.5 sm:left-auto sm:right-3.5 sm:translate-x-0">
         {MEDIA.map((_, i) => (
           <span
             key={i}

@@ -67,42 +67,42 @@ export default async function HomePage({
         </div>
 
         <Reveal className="pb-5">
-          <section className="relative min-h-[420px] overflow-hidden rounded-xl border bg-[var(--panel)] md:min-h-[460px]">
+          <section className="relative min-h-[380px] overflow-hidden rounded-xl border bg-[var(--panel)] sm:min-h-[410px] md:min-h-[460px]">
             <HeroMedia />
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[70%] bg-gradient-to-r from-white/85 via-white/45 to-transparent dark:from-black/70 dark:via-black/35 dark:to-transparent md:w-[62%] lg:w-[55%]" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[78%] bg-gradient-to-r from-white/85 via-white/45 to-transparent dark:from-black/70 dark:via-black/35 dark:to-transparent sm:w-[72%] md:w-[62%] lg:w-[55%]" />
             <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.20),transparent_54%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(0,0,0,0.24),transparent_56%)]" />
             <div className="subtle-grid pointer-events-none absolute inset-0 z-10 opacity-30" />
-            <div className="pointer-events-none absolute -left-3 bottom-2 z-10 text-[120px] font-light leading-none tracking-tight text-[var(--fg)] opacity-[0.07] md:text-[210px]">
+            <div className="pointer-events-none absolute -left-3 bottom-2 z-10 hidden text-[120px] font-light leading-none tracking-tight text-[var(--fg)] opacity-[0.07] sm:block md:text-[210px]">
               TS
             </div>
 
-            <div className="relative z-20 grid gap-5 p-5 md:p-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-6">
+            <div className="relative z-20 grid gap-4 p-4 sm:gap-5 sm:p-5 md:p-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-6">
               <div className="grid content-start gap-4">
-                <div className="max-w-[520px] rounded-2xl bg-white/75 p-5 shadow-[0_12px_34px_rgba(0,0,0,0.12)] backdrop-blur-md ring-1 ring-black/10 dark:bg-black/50 dark:shadow-[0_14px_36px_rgba(0,0,0,0.2)] dark:ring-white/10 lg:ml-5 lg:max-w-[560px] lg:p-6">
-                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{copy.brand.subtagline[locale]}</p>
-                  <h1 className="hero-heading-shadow mt-2 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">
+                <div className="max-w-[520px] rounded-2xl bg-white/75 p-4 shadow-[0_12px_34px_rgba(0,0,0,0.12)] backdrop-blur-md ring-1 ring-black/10 dark:bg-black/50 dark:shadow-[0_14px_36px_rgba(0,0,0,0.2)] dark:ring-white/10 sm:p-5 lg:ml-5 lg:max-w-[560px] lg:p-6">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-xs">{copy.brand.subtagline[locale]}</p>
+                  <h1 className="hero-heading-shadow mt-2 max-w-4xl text-3xl font-semibold tracking-tight sm:text-4xl md:text-6xl">
                     {hero.h1Lines.map((line) => (
                       <span key={line} className="block">
                         {line}
                       </span>
                     ))}
                   </h1>
-                  <p className="hero-copy-shadow mt-3 max-w-4xl text-base text-slate-700 dark:text-slate-200 md:text-[17px]">
+                  <p className="hero-copy-shadow mt-2.5 max-w-4xl text-sm text-slate-700 dark:text-slate-200 sm:text-base md:mt-3 md:text-[17px]">
                     {hero.leadLines.map((line) => (
                       <span key={line} className="block">
                         {line}
                       </span>
                     ))}
                   </p>
-                  <div className="mt-4 flex flex-wrap items-center gap-2.5">
+                  <div className="mt-3.5 grid gap-2 sm:mt-4 sm:flex sm:flex-wrap sm:items-center sm:gap-2.5">
                     <Link
-                      className="focus-ring rounded border border-emeraldSignal bg-emeraldSignal px-3.5 py-2 text-sm font-medium text-white shadow-[0_0_0_rgba(14,124,102,0)] transition-all duration-200 hover:-translate-y-px hover:bg-[#0a6b58] hover:shadow-[0_0_20px_rgba(14,124,102,0.25)] active:scale-[0.98] active:bg-[#095a4b]"
+                      className="focus-ring rounded border border-emeraldSignal bg-emeraldSignal px-3.5 py-2 text-center text-sm font-medium text-white shadow-[0_0_0_rgba(14,124,102,0)] transition-all duration-200 hover:-translate-y-px hover:bg-[#0a6b58] hover:shadow-[0_0_20px_rgba(14,124,102,0.25)] active:scale-[0.98] active:bg-[#095a4b] sm:text-left"
                       href={hero.ctaPrimary.href}
                     >
                       {hero.ctaPrimary.label}
                     </Link>
                     <Link
-                      className="focus-ring rounded border border-emeraldSignal px-3.5 py-2 text-sm font-medium text-[var(--fg)] transition-all duration-200 hover:-translate-y-px hover:bg-[rgba(14,124,102,0.08)] active:scale-[0.98] active:bg-[rgba(14,124,102,0.14)]"
+                      className="focus-ring rounded border border-emeraldSignal px-3.5 py-2 text-center text-sm font-medium text-[var(--fg)] transition-all duration-200 hover:-translate-y-px hover:bg-[rgba(14,124,102,0.08)] active:scale-[0.98] active:bg-[rgba(14,124,102,0.14)] sm:text-left"
                       href={hero.ctaSecondary.href}
                     >
                       {hero.ctaSecondary.label}
@@ -112,7 +112,7 @@ export default async function HomePage({
               </div>
 
               {copy.live.fx.enabled ? (
-                <aside className="w-full max-w-[360px] lg:self-start lg:justify-self-end">
+                <aside className="w-full max-w-[340px] sm:max-w-[360px] lg:self-start lg:justify-self-end">
                   <FxTicker
                     title="FX REFERENCE RATES"
                     pairs={copy.live.fx.pairs}
