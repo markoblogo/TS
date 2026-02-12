@@ -23,6 +23,8 @@ export type SiteCopy = {
     {
       title: string;
       updatedDaily: string;
+      updatedDailyApi?: string;
+      updatedDailyScrape?: string;
       unavailable: string;
       commodities: { corn: string; wheat: string; soybeans: string };
     }
@@ -237,6 +239,8 @@ const siteCopy: SiteCopy = {
     en: {
       title: "Futures",
       updatedDaily: "Updated daily (Barchart)",
+      updatedDailyApi: "Updated daily (Barchart API)",
+      updatedDailyScrape: "Updated daily (Barchart scrape)",
       unavailable: "Market data unavailable",
       commodities: {
         corn: "Corn",
@@ -247,6 +251,8 @@ const siteCopy: SiteCopy = {
     bg: {
       title: "Фючърси",
       updatedDaily: "Обновява се ежедневно (Barchart)",
+      updatedDailyApi: "Обновява се ежедневно (Barchart API)",
+      updatedDailyScrape: "Обновява се ежедневно (Barchart scrape)",
       unavailable: "Пазарните данни са недостъпни",
       commodities: {
         corn: "Царевица",

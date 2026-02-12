@@ -18,6 +18,18 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Futures data mode
+
+- With `BARCHART_API_KEY` (or supported aliases), the site uses Barchart OnDemand API.
+- Without an API key, the futures strip reads `public/data/futures.json`.
+- `public/data/futures.json` is updated daily by GitHub Actions (`.github/workflows/scrape-futures.yml`).
+
+Manual refresh:
+
+```bash
+npm run scrape:futures
+```
+
 ## Features implemented
 
 - Thin-line TS identity with emerald signal accent

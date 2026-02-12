@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2026-02-12",
+  "source": "barchart_scrape",
+  "items": [
+    {
+      "symbol": "ZCH26",
+      "name": "Corn",
+      "month": "Mar '26",
+      "last": 428.75,
+      "change": 1.25,
+      "percent": 0.29
+    },
+    {
+      "symbol": "ZWH26",
+      "name": "Wheat",
+      "month": "Mar '26",
+      "last": 540.5,
+      "change": 3.25,
+      "percent": 0.6
+    },
+    {
+      "symbol": "ZSH26",
+      "name": "Soybeans",
+      "month": "Mar '26",
+      "last": 1137.75,
+      "change": 13.75,
+      "percent": 1.22
+    }
+  ]
+}

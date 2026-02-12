@@ -1,8 +1,10 @@
-import { getFuturesQuotes } from "@/lib/barchart";
+import { getFuturesData } from "@/lib/futures-data";
 
 type FuturesCopy = {
   title: string;
   updatedDaily: string;
+  updatedDailyApi?: string;
+  updatedDailyScrape?: string;
   unavailable: string;
   commodities: { corn: string; wheat: string; soybeans: string };
 };
@@ -29,8 +31,8 @@ function formatPercent(value: number | null): string {
 }
 
 export async function FuturesStrip({ copy }: Props) {
-  const quotes = await getFuturesQuotes();
-  if (!quotes) {
+  const data = await getFuturesData();
+  if (!data.items.length) {
     return (
       <section className="rounded-lg border bg-[var(--panel)] px-3 py-2 text-xs text-[var(--muted)] md:px-4" aria-live="polite">
         <p>{copy.unavailable}</p>
@@ -38,13 +40,19 @@ export async function FuturesStrip({ copy }: Props) {
     );
   }
 
-  const updatedAt = quotes.find((quote) => quote.updatedAt)?.updatedAt ?? null;
+  const sourceLabel =
+    data.source === "barchart_api"
+      ? (copy.updatedDailyApi ?? copy.updatedDaily)
+      : data.source === "barchart_scrape"
+        ? (copy.updatedDailyScrape ?? copy.updatedDaily)
+        : copy.updatedDaily;
+  const updatedAt = data.updatedAt ?? data.items.find((quote) => quote.updatedAt)?.updatedAt ?? null;
   const dateLabel = updatedAt ? new Date(updatedAt).toLocaleDateString("en-CA") : null;
 
   return (
     <section className="rounded-lg border bg-[var(--panel)] px-3 py-2.5 shadow-[0_6px_18px_rgba(13,18,26,0.06)] md:px-4">
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        {quotes.map((quote) => {
+        {data.items.map((quote) => {
           const net = quote.netChange ?? 0;
           const tone = net > 0 ? "text-emerald-600 dark:text-emerald-400" : net < 0 ? "text-rose-600 dark:text-rose-400" : "text-[var(--muted)]";
           const commodity = copy.commodities[quote.commodityKey];
@@ -62,7 +70,7 @@ export async function FuturesStrip({ copy }: Props) {
         })}
       </div>
       <p className="mt-2 text-[10px] text-[var(--muted)]">
-        {copy.updatedDaily}
+        {sourceLabel}
         {dateLabel ? ` · ${dateLabel}` : ""}
       </p>
     </section>
