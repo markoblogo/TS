@@ -1,10 +1,10 @@
-# Trade Solutions Bilingual Card Site
+# Trade Solutions — bilingual website (EN/BG)
 
-Minimal Next.js (App Router) website for Trade Solutions with EN/BG route-localized content, theme toggle, geo-based locale redirect, live ECB ticker, and footer clocks.
+Minimal, fast, bilingual website for Trade Solutions with EN/BG route-localized content, theme toggle, geo-based locale redirect, live operational widgets (FX reference rates, futures strip, business window clocks), and a clean, structured layout.
 
 ## Stack
 
-- Next.js + App Router + TypeScript
+- Next.js (App Router) + TypeScript
 - Tailwind CSS
 - `next-themes` (class strategy)
 - Route i18n by segments: `/en`, `/bg`
@@ -18,10 +18,25 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Futures data mode
+## Data sources and live modules
 
-- With `BARCHART_API_KEY` (or supported aliases), the site uses Barchart OnDemand API.
-- Without an API key, the futures strip reads `public/data/futures.json`.
+### 1) FX reference rates (ECB)
+
+- FX rates are fetched from the European Central Bank daily feed (SSR with `revalidate: 86400`).
+- Displayed as a compact Market Pulse panel in the Hero.
+- Graceful fallback message if rates are unavailable.
+
+### 2) Futures strip (Corn/Wheat/Soybeans)
+
+The futures strip supports two modes:
+
+#### Mode A — Barchart OnDemand API (optional)
+
+- If `BARCHART_API_KEY` (or supported aliases) is present in runtime, the site fetches quotes via Barchart OnDemand `getQuote.json`.
+
+#### Mode B — No API key (default-friendly)
+
+- If there is no API key, the strip reads `public/data/futures.json`.
 - `public/data/futures.json` is updated daily by GitHub Actions (`.github/workflows/scrape-futures.yml`).
 
 Manual refresh:
@@ -30,51 +45,58 @@ Manual refresh:
 npm run scrape:futures
 ```
 
-## Features implemented
+## Key UI features
 
-- Thin-line TS identity with emerald signal accent
-- Light/Dark theme toggle (persisted in `localStorage` via `next-themes`)
-- EN/BG language toggle
-- Geo locale middleware redirect:
-  - `BG` country => `/bg`
+- Bilingual EN/BG content via route segments (`/en`, `/bg`)
+- Theme toggle (light/dark) persisted via `next-themes`
+- Geo locale redirect middleware:
+  - BG country => `/bg`
   - all others => `/en`
+- Hero module:
+  - editorial photo slider (crossfade + subtle motion)
+  - left editorial overlay copy + CTAs
+  - right Market Pulse panel (FX)
+- Structured sections:
+  - Solutions / How we work / Facts strip
+  - Markets / Geography: map + interactive markers and list-driven highlighting
+  - Operational network: category social proof without partner logos
+- Footer:
+  - world time micro-cards + business window status (updates regularly)
 - SEO:
   - localized metadata (title/description)
-  - OG tags
-  - `sitemap.xml`
-  - `robots.txt`
-  - `schema.org` Organization JSON-LD
-- Live elements:
-  - Header FX ticker from ECB daily XML (`revalidate: 86400`)
-  - graceful fallback (`Rates unavailable`)
-  - fixed BGN conversion text
-  - Footer clocks (Sofia/Kyiv/New York/London)
-  - business window status with next window hint, updates every 60s
-- Accessibility:
-  - keyboard-focus states
-  - ARIA labels for toggles
-  - high-contrast palette in both themes
-- Privacy page with no-cookies and email handling statement
+  - Open Graph tags
+  - `sitemap.xml`, `robots.txt`
+  - JSON-LD Organization schema
 
-## File structure
+## Accessibility
+
+- Keyboard focus states (`focus-visible`)
+- ARIA labels on toggles where applicable
+- Contrast-aware styling for both themes
+- Reduced-motion friendly animation choices (where possible)
+
+## Project structure
 
 ```text
 .
 ├── app
 │   ├── [locale]
+│   │   ├── brand
+│   │   │   └── page.tsx
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
 │   │   └── privacy
 │   │       └── page.tsx
 │   ├── globals.css
-│   ├── layout.tsx
-│   ├── page.tsx
 │   ├── robots.ts
 │   └── sitemap.ts
 ├── components
+│   ├── brand-gallery.tsx
 │   ├── fx-ticker.tsx
-│   ├── language-toggle.tsx
+│   ├── futures-strip.tsx
 │   ├── live-clocks.tsx
+│   ├── markets.tsx
+│   ├── markets-map.tsx
 │   ├── reveal.tsx
 │   ├── site-footer.tsx
 │   ├── site-header.tsx
@@ -82,82 +104,76 @@ npm run scrape:futures
 │   ├── theme-toggle.tsx
 │   └── ts-logo.tsx
 ├── lib
+│   ├── barchart.ts
 │   ├── clocks.ts
 │   ├── copy.ts
 │   ├── ecb.ts
+│   ├── futures-data.ts
 │   └── i18n.ts
 ├── public
-│   └── assets
-│       └── logos
-│           ├── ts-logo-dark.svg
-│           └── ts-logo-light.svg
+│   ├── assets
+│   │   ├── bb
+│   │   └── logos
+│   └── data
+│       └── futures.json
+├── scripts
+│   └── scrape-barchart-futures.ts
+├── .github
+│   └── workflows
+│       └── scrape-futures.yml
 ├── middleware.ts
 ├── next.config.ts
 ├── package.json
-├── postcss.config.mjs
 ├── tailwind.config.ts
 └── tsconfig.json
 ```
 
-## Logo assets and dark-mode switching
+Notes:
+
+- `public/assets/bb/` is used for brandbook-style assets (logos + mockups) on the Brand page.
+- `public/data/futures.json` is the no-API-key data source for the futures strip.
+
+## Environment variables
+
+### Optional (API mode)
+
+- `BARCHART_API_KEY` — enables Barchart OnDemand mode for futures quotes.
+  - Supported aliases may be implemented for convenience (see `lib/barchart.ts`).
+
+No env vars are required if you use the daily-updated `public/data/futures.json` mode.
+
+## Logo assets and theme switching
 
 Place brand assets here:
 
 - `public/assets/logos/ts-logo-light.svg`
 - `public/assets/logos/ts-logo-dark.svg`
 
-Current header logo component (`components/ts-logo.tsx`) automatically switches by theme class:
+The header logo component (`components/ts-logo.tsx`) switches automatically by theme class.
 
-- light theme: `block dark:hidden`
-- dark theme: `hidden dark:block`
-
-If you prefer PNG variants, keep the same names with `.png` and update paths in `components/ts-logo.tsx`.
+If you prefer PNG variants, keep naming consistent and update paths in `components/ts-logo.tsx`.
 
 ## Deploy to Vercel
 
 ### Option A: Vercel CLI
 
-1. Install CLI and login:
-
 ```bash
 npm i -g vercel
 vercel login
-```
-
-2. Deploy preview:
-
-```bash
 vercel
-```
-
-3. Deploy production:
-
-```bash
 vercel --prod
 ```
 
 ### Option B: Git integration
 
-1. Push repository to GitHub.
-2. In Vercel, `Add New Project` and import repo.
+1. Push repo to GitHub.
+2. In Vercel, import the repository.
 3. Build settings:
-   - Framework: Next.js (auto)
    - Build command: `npm run build`
    - Output: `.next`
-
-## Attach temporary domain `ts.abvx.xyz`
-
-After first deployment:
-
-1. Open project in Vercel -> `Settings` -> `Domains`.
-2. Add `ts.abvx.xyz`.
-3. In DNS provider for `abvx.xyz`, create/verify records Vercel requests:
-   - typically `CNAME ts -> cname.vercel-dns.com`
-   - or an `A` record if Vercel instructs so for apex/subdomain setup
-4. Wait for Vercel domain status to become `Valid Configuration`.
 
 ## Privacy constraints
 
 - No analytics tools
-- No cookies
-- Contacts via mailto links only
+- No marketing cookies
+- Contacts via `mailto` links only
