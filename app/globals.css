@@ -142,6 +142,22 @@ body {
   animation-duration: 3.8s;
 }
 
+@keyframes pulseSoft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  45% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+.animate-pulseSoft {
+  animation: pulseSoft 5.2s ease-in-out infinite;
+}
+
 .interactive-card {
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
