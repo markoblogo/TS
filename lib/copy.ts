@@ -192,46 +192,46 @@ const siteCopy: SiteCopy = {
   },
   markets: {
     en: {
-      title: "Markets / Geography",
-      subtitle: "Structured coordination across practical European routes and handover points.",
+      title: "Markets we trade",
+      subtitle: "Regional coverage by active trade focus.",
       items: [
-        "Market entry planning",
-        "Routing & timing constraints",
-        "Documentation & handover",
-        "Risk limits and scenario gates"
+        "Southern Europe: Italy",
+        "Southeast Europe: Bulgaria, Romania, Serbia, Croatia",
+        "Central Europe: Germany, Poland, Slovakia, Hungary",
+        "Eastern Europe: Moldova, Ukraine"
       ],
       markers: [
-        { key: "mk-6", label: "Western Europe" },
-        { key: "mk-14", label: "Balkans / Bulgaria" },
-        { key: "mk-20", label: "Black Sea routes" },
-        { key: "mk-23", label: "West / South Europe" }
+        { key: "region-south", label: "Southern Europe" },
+        { key: "region-southeast", label: "Southeast Europe" },
+        { key: "region-central", label: "Central Europe" },
+        { key: "region-east", label: "Eastern Europe" }
       ]
     },
     bg: {
-      title: "Пазари / География",
-      subtitle: "Структурирана координация по практични европейски маршрути и точки за предаване.",
+      title: "Пазари, на които търгуваме",
+      subtitle: "Регионално покритие по активен търговски фокус.",
       items: [
-        "Планиране на пазарен достъп",
-        "Ограничения: маршрути и срокове",
-        "Документация и предаване",
-        "Риск лимити и сценарии"
+        "Южна Европа: Италия",
+        "Югоизточна Европа: България, Румъния, Сърбия, Хърватия",
+        "Централна Европа: Германия, Полша, Словакия, Унгария",
+        "Източна Европа: Молдова, Украйна"
       ],
       markers: [
-        { key: "mk-6", label: "Западна Европа" },
-        { key: "mk-14", label: "Балкани / България" },
-        { key: "mk-20", label: "Черноморски маршрути" },
-        { key: "mk-23", label: "Запад / Юг Европа" }
+        { key: "region-south", label: "Южна Европа" },
+        { key: "region-southeast", label: "Югоизточна Европа" },
+        { key: "region-central", label: "Централна Европа" },
+        { key: "region-east", label: "Източна Европа" }
       ]
     }
   },
   network: {
     en: {
       title: "Operational network",
-      items: ["processors", "trading companies", "logistics operators", "institutional counterparties"]
+      items: ["Farmers", "Traders", "Logistics operators", "Financial institutions"]
     },
     bg: {
       title: "Оперативна мрежа",
-      items: ["преработватели", "търговски компании", "логистични оператори", "институционални контрагенти"]
+      items: ["Фермери", "Търговци", "Логистични оператори", "Финансови институции"]
     }
   },
   scope: {
@@ -240,9 +240,14 @@ const siteCopy: SiteCopy = {
       subtitle: "Broad specialization, structured delivery.",
       matrix: {
         leftTitle: "Trade layer",
-        leftItems: ["market context", "structure", "contracts"],
+        leftItems: [
+          "Market context analysis",
+          "Risk & reward structuring",
+          "Trade model & limits assessment",
+          "Contract structuring"
+        ],
         rightTitle: "Logistics layer",
-        rightItems: ["routing", "timing", "coordination", "documentation"]
+        rightItems: ["Chain parameters", "Timing limits", "Coordination points", "Documentation standards"]
       },
       note: "Designed for European markets."
     },
@@ -251,9 +256,14 @@ const siteCopy: SiteCopy = {
       subtitle: "Широка специализация, структурирана реализация.",
       matrix: {
         leftTitle: "Търговски слой",
-        leftItems: ["пазарен контекст", "структура", "договори"],
+        leftItems: [
+          "Анализ на пазарния контекст",
+          "Структуриране на риск и възвръщаемост",
+          "Оценка на търговския модел и лимитите",
+          "Структуриране на договори"
+        ],
         rightTitle: "Логистичен слой",
-        rightItems: ["маршрути", "тайминг", "координация", "документация"]
+        rightItems: ["Параметри на веригата", "Времеви лимити", "Координационни точки", "Стандарти за документация"]
       },
       note: "Проектирано за европейските пазари."
     }
@@ -261,11 +271,11 @@ const siteCopy: SiteCopy = {
   about: {
     en: {
       title: "About",
-      text: "Trade Solutions supports commercial teams that need structure before they need volume. We map market context, contract logic, and logistics constraints into a practical execution framework. Our focus is operational clarity: who does what, when, and under which risk limits. We are not a commodity broker, not a prop trader, and not a price board. The work is designed to keep decisions measurable, documented, and executable in real conditions."
+      text: "Trade Solutions supports commercial teams that need structure before they need volume. We map market context, contract logic, and logistics constraints into a practical execution framework. Our focus is operational clarity: who does what, when, and under which risk limits. We are not a commodity broker, not a prop trader, and not a price board. The work is designed to keep decisions measurable, documented, and executable in real conditions. We design and manage supply chains from farmers to final consumers."
     },
     bg: {
       title: "За нас",
-      text: "Trade Solutions подпомага търговски екипи, когато е нужна структура преди обем. Подреждаме пазарен контекст, договорна логика и логистични ограничения в практична рамка за изпълнение. Фокусът ни е оперативна яснота: кой, какво и кога изпълнява при предварително зададени риск параметри. Не сме commodity брокер, не сме prop trader и не сме „витрина с цени“. Подходът е насочен към измерими, документирани и приложими в реални условия решения."
+      text: "Trade Solutions подпомага търговски екипи, които имат нужда от структура преди обем. Превръщаме пазарния контекст, договорната логика и логистичните ограничения в практическа рамка за изпълнение. Фокусът ни е оперативната яснота: кой какво прави, кога и при какви риск лимити. Ние не сме брокер на суровини, не сме проп трейдър и не сме ценово табло. Работата е организирана така, че решенията да са измерими, документирани и изпълними в реални условия. Проектираме и управляваме вериги на доставка от фермерите до крайния потребител."
     }
   },
   faq: {
