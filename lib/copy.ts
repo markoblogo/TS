@@ -18,6 +18,15 @@ export type SiteCopy = {
   process: Record<Locale, { title: string; steps: Array<{ title: string; text: string; meta: string[] }> }>;
   factsStrip: Record<Locale, { items: string[] }>;
   markets: Record<Locale, { title: string; subtitle: string; items: string[]; markers: Array<{ key: string; label: string }> }>;
+  futures: Record<
+    Locale,
+    {
+      title: string;
+      updatedDaily: string;
+      unavailable: string;
+      commodities: { corn: string; wheat: string; soybeans: string };
+    }
+  >;
   network: Record<Locale, { title: string; items: string[] }>;
   scope: Record<
     Locale,
@@ -222,6 +231,28 @@ const siteCopy: SiteCopy = {
         { key: "region-central", label: "Централна Европа" },
         { key: "region-east", label: "Източна Европа" }
       ]
+    }
+  },
+  futures: {
+    en: {
+      title: "Futures",
+      updatedDaily: "Updated daily (Barchart)",
+      unavailable: "Market data unavailable",
+      commodities: {
+        corn: "Corn",
+        wheat: "Wheat",
+        soybeans: "Soybeans"
+      }
+    },
+    bg: {
+      title: "Фючърси",
+      updatedDaily: "Обновява се ежедневно (Barchart)",
+      unavailable: "Пазарните данни са недостъпни",
+      commodities: {
+        corn: "Царевица",
+        wheat: "Пшеница",
+        soybeans: "Соя"
+      }
     }
   },
   network: {

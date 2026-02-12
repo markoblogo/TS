@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { FactsStrip } from "@/components/facts-strip";
 import { FxTicker } from "@/components/fx-ticker";
+import { FuturesStrip } from "@/components/futures-strip";
 import { HeroMedia } from "@/components/hero-media";
 import { Markets } from "@/components/markets";
 import { OperationalNetwork } from "@/components/operational-network";
@@ -61,6 +62,10 @@ export default async function HomePage({
       <SiteHeader locale={locale} copy={copy} />
 
       <main className="section-shell py-8 md:py-10">
+        <div className="mb-4">
+          <FuturesStrip copy={copy.futures[locale]} />
+        </div>
+
         <Reveal className="pb-5">
           <section className="relative min-h-[420px] overflow-hidden rounded-xl border bg-[var(--panel)] md:min-h-[460px]">
             <HeroMedia />
