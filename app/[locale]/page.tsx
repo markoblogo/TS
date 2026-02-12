@@ -6,6 +6,7 @@ import { FxTicker } from "@/components/fx-ticker";
 import { FuturesStrip } from "@/components/futures-strip";
 import { HeroMedia } from "@/components/hero-media";
 import { Markets } from "@/components/markets";
+import { MoodTeaser } from "@/components/mood-teaser";
 import { OperationalNetwork } from "@/components/operational-network";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
@@ -214,6 +215,10 @@ export default async function HomePage({
             {about.title}
           </h2>
           <p className="max-w-4xl leading-relaxed text-[var(--muted)]">{about.text}</p>
+        </Reveal>
+
+        <Reveal className="py-4">
+          <MoodTeaser />
         </Reveal>
 
         <Reveal className="thin-rule border-t py-6" id="faq">
